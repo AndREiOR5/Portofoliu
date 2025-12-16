@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Portofoliu AndREiOR</title>
+<style>
+/* Reset si fonturi */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+}
+
+/* Titlu portofoliu */
+h1 {
+    text-align: center;
+    font-size: 48px;
+    color: #4fc3f7;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+/* Card */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+/* Input / textarea */
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    resize: none;
+}
+
+/* Button */
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #4fc3f7;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #81d4fa;
+}
+
+/* Output */
+.output {
+    margin-top: 15px;
+    font-size: 18px;
+    min-height: 30px;
+    word-wrap: break-word;
+}
+
+/* Linkuri */
+.download, .github-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.download {
+    background: #00e676;
+    color: black;
+}
+
+.download:hover {
+    background: #1aff8c;
+}
+
+.github-link {
+    background: #ff9800;
+    color: black;
+}
+
+.github-link:hover {
+    background: #ffc153;
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    opacity: 0.6;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Portofoliu AndREiOR</h1>
+    <p class="subtitle">Aplicatii si proiecte realizate in Python + JavaScript</p>
+
+    <!-- Small Caps App Demo -->
+    <div class="card">
+        <h2>Small Caps Generator (Demo Browser)</h2>
+        <textarea id="input" placeholder="Scrie text aici..."></textarea>
+        <button onclick="convert()">Transforma</button>
+        <div class="output" id="output"></div>
+    </div>
+
+    <!-- Download exe -->
+    <div class="card">
+        <h2>Descarca aplicatia Desktop</h2>
+        <p>Versiune realizata in Python + Tkinter</p>
+        <a class="download" href="smallcapsandreior.exe" download>Descarca .exe</a>
+    </div>
+
+    <!-- Open Source -->
+    <div class="card">
+        <h2>Open Source</h2>
+        <p>Codul sursa este public pe GitHub. Oricine poate vedea si modifica aplicatia.</p>
+        <a class="github-link" href="https://github.com/AndREiOR5/Small-Caps-App" target="_blank">
+            Vezi pe GitHub
+        </a>
+    </div>
+
+    <!-- Run Anyway Info -->
+    <div class="card">
+        <h2>De ce apare „Run anyway”?</h2>
+        <p>Windows poate afisa mesajul <strong>„Windows protected your PC”</strong>
+        atunci cand rulezi aplicatia pentru prima data.</p>
+        <p>Acest lucru este normal deoarece aplicatia:</p>
+        <ul>
+            <li>este creata de un dezvoltator independent</li>
+            <li>nu este semnata digital</li>
+            <li>este descarcata de pe internet</li>
+        </ul>
+        <p>Pasii pentru a rula aplicatia:</p>
+        <ol>
+            <li>Apasa <strong>More info</strong></li>
+            <li>Apasa <strong>Run anyway</strong></li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        © 2025 • AndREiOR
+    </div>
+</div>
+
+<script>
+// Small Caps JS
+const map = {
+a:"ᴀ", b:"ʙ", c:"ᴄ", d:"ᴅ", e:"ᴇ", f:"ꜰ", g:"ɢ",
+h:"ʜ", i:"ɪ", j:"ᴊ", k:"ᴋ", l:"ʟ", m:"ᴍ", n:"ɴ",
+o:"ᴏ", p:"ᴘ", q:"ǫ", r:"ʀ", s:"ꜱ", t:"ᴛ", u:"ᴜ",
+v:"ᴠ", w:"ᴡ", x:"x", y:"ʏ", z:"ᴢ"
+};
+
+function convert() {
+    const text = document.getElementById("input").value.toLowerCase();
+    let result = "";
+    for (let char of text) {
+        result += map[char] || char;
+    }
+    document.getElementById("output").textContent = result;
+}
+</script>
+
+</body>
+</html>
