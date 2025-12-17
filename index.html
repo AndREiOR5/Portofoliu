@@ -72,14 +72,6 @@ h1 {
 }
 </style>
     
-    <script>
-fetch("https://api.countapi.xyz/hit/andreior5-portofoliu")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("views").innerText = data.value;
-  });
-</script>
-
 </head>
 <body>
 
@@ -108,6 +100,13 @@ fetch("https://api.countapi.xyz/hit/andreior5-portofoliu")
         © 2025 • AndREiOR
     </div>
 </div>
+<script>
+fetch("https://api.countapi.xyz/hit/andreior5.github.io/portofoliu")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("views").innerText = data.value;
+  });
+</script>
 
 </body>
 </html>
