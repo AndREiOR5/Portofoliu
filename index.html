@@ -8,14 +8,13 @@
 <style>
 :root {
     --blue: #08afff;
-    --bg-dark: #0b1220;
-    --bg-light: #f7f9fc;
-    --card-dark: #121a2f;
+    --bg-dark: #000000;
+    --card-dark: #111111;
+    --text-dark: #ffffff;
+    --muted-dark: #aaaaaa;
     --card-light: #ffffff;
-    --text-dark: #e5e7eb;
-    --text-light: #1f2933;
-    --muted-dark: #9ca3af;
-    --muted-light: #6b7280;
+    --text-light: #111111;
+    --muted-light: #666666;
 }
 
 * {
@@ -66,12 +65,12 @@ header p {
 
 /* Project Card */
 .project {
-    background: linear-gradient(180deg, var(--card-dark), #0e152b);
+    background: var(--card-dark);
     border-radius: 20px;
     padding: 32px;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #1f2a44;
+    border: 1px solid #222222;
     transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease, opacity 0.5s;
     display: flex;
     flex-direction: column;
@@ -83,7 +82,7 @@ header p {
 .project:hover {
     transform: translateY(-10px);
     border-color: var(--blue);
-    box-shadow: 0 30px 70px rgba(8,175,255,0.15);
+    box-shadow: 0 30px 70px rgba(8,175,255,0.2);
 }
 
 .project h2 {
@@ -170,31 +169,32 @@ footer {
 // Dark/Light Toggle
 function toggleTheme() {
     const body = document.body;
+    const projects = document.querySelectorAll(".project");
+    const headerP = document.querySelectorAll("header p, footer");
+
     if(body.style.background === "var(--bg-light)") {
+        // Switch to dark
         body.style.background = "var(--bg-dark)";
         body.style.color = "var(--text-dark)";
-        document.querySelectorAll(".project").forEach(p=>{
-            p.style.background = "linear-gradient(180deg, var(--card-dark), #0e152b)";
+        projects.forEach(p => {
+            p.style.background = "var(--card-dark)";
             p.style.color = "var(--text-dark)";
         });
-        document.querySelectorAll("header p, footer").forEach(t=>{
-            t.style.color = "var(--muted-dark)";
-        });
+        headerP.forEach(t => t.style.color = "var(--muted-dark)");
     } else {
+        // Switch to light
         body.style.background = "var(--bg-light)";
         body.style.color = "var(--text-light)";
-        document.querySelectorAll(".project").forEach(p=>{
+        projects.forEach(p => {
             p.style.background = "var(--card-light)";
             p.style.color = "var(--text-light)";
         });
-        document.querySelectorAll("header p, footer").forEach(t=>{
-            t.style.color = "var(--muted-light)";
-        });
+        headerP.forEach(t => t.style.color = "var(--muted-light)");
     }
 }
 
 // Fade-in on scroll
-const projects = document.querySelectorAll(".project");
+const projectElems = document.querySelectorAll(".project");
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -204,7 +204,7 @@ const observer = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.1 });
 
-projects.forEach(p => observer.observe(p));
+projectElems.forEach(p => observer.observe(p));
 </script>
 
 </body>
