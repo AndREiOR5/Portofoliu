@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>AndREiOR</title>
+
 <style>
 body {
     margin: 0;
@@ -34,78 +35,86 @@ h1 {
 .projects {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
 
 .project-card {
     background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 25px;
-    width: 280px;
+    width: 300px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-decoration: none;
     color: white;
+    position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 0 45px rgba(0,0,0,0.6);
 }
 
 .project-card h2 {
     margin-top: 0;
     color: #4fc3f7;
+    font-size: 24px;
 }
 
 .project-card p {
-    opacity: 0.8;
+    opacity: 0.85;
     font-size: 16px;
+    line-height: 1.4;
+}
+
+.views {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+    text-align: right;
 }
 
 .footer {
-    margin-top: 50px;
+    margin-top: 60px;
     opacity: 0.6;
     font-size: 14px;
     text-align: center;
 }
 </style>
-    
 </head>
+
 <body>
 
 <div class="container">
     <h1>AndREiOR</h1>
-    <p class="subtitle">Proiecte realizate in Python, JavaScript etc</p>
+    <p class="subtitle">Proiecte realizate in Python, JavaScript si Web</p>
 
     <div class="projects">
         <!-- Small Caps App -->
         <a href="https://andreior5.github.io/Small-Caps-App/" target="_blank" class="project-card">
             <h2>Small Caps App</h2>
-            <p>Aplicatie care transforma textul in small caps, realizata in Python + Tkinter si cu demo online in browser.</p>
+            <p>
+                Aplicatie care transforma textul in small caps, realizata in
+                Python + Tkinter, cu demo online in browser.
+            </p>
+            <div class="views">
+                Vizualizari portofoliu: <span id="views">0</span>
+            </div>
         </a>
-        <p>Vizualizari: <span id="views">0</span></p>
-
-        <!-- Aici poti adauga alte proiecte -->
-        <!--
-        <a href="alt-proiect.html" class="project-card">
-            <h2>Alt Proiect</h2>
-            <p>Scurta descriere a proiectului tau.</p>
-        </a>
-        -->
     </div>
 
     <div class="footer">
         © 2025 • AndREiOR
     </div>
 </div>
+
 <script>
-fetch("https://api.countapi.xyz/hit/andreior5.github.io/portofoliu")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("views").innerText = data.value;
-  });
+fetch("https://api.countapi.xyz/hit/andreior5.github.io/portofoliu/")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("views").innerText = data.value;
+    });
 </script>
 
 </body>
