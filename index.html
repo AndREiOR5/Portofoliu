@@ -71,6 +71,15 @@ h1 {
     text-align: center;
 }
 </style>
+    
+    <script>
+fetch("https://api.countapi.xyz/hit/andreior5-portfolio/smallcaps")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("views").innerText = data.value;
+  });
+</script>
+
 </head>
 <body>
 
@@ -84,6 +93,7 @@ h1 {
             <h2>Small Caps App</h2>
             <p>Aplicatie care transforma textul in small caps, realizata in Python + Tkinter si cu demo online in browser.</p>
         </a>
+        <p>Vizualizari: <span id="views">0</span></p>
 
         <!-- Aici poti adauga alte proiecte -->
         <!--
