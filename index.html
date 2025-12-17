@@ -8,10 +8,11 @@
 <style>
 :root {
     --blue: #08afff;
-    --bg: #f7f9fc;
-    --card: #ffffff;
-    --text: #1f2933;
-    --muted: #6b7280;
+    --bg: #0b1220;
+    --card: #121a2f;
+    --border: #1f2a44;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
 }
 
 * {
@@ -21,7 +22,7 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg);
+    background: radial-gradient(circle at top, #0f172a, var(--bg));
     color: var(--text);
 }
 
@@ -37,7 +38,7 @@ header {
 }
 
 header h1 {
-    font-size: clamp(36px, 6vw, 56px);
+    font-size: clamp(38px, 6vw, 56px);
     margin: 0;
     font-weight: 700;
 }
@@ -59,26 +60,26 @@ header p {
 }
 
 .project {
-    background: var(--card);
+    background: linear-gradient(180deg, var(--card), #0e152b);
     border-radius: 20px;
     padding: 32px;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #e5e7eb;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid var(--border);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .project:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+    transform: translateY(-10px);
     border-color: var(--blue);
+    box-shadow: 0 30px 70px rgba(8,175,255,0.15);
 }
 
 .project h2 {
-    margin: 0 0 12px 0;
+    margin: 0 0 14px 0;
     font-size: 24px;
     color: var(--blue);
 }
@@ -90,7 +91,7 @@ header p {
 }
 
 .project .cta {
-    margin-top: 28px;
+    margin-top: 30px;
     font-size: 14px;
     font-weight: 600;
     color: var(--blue);
@@ -121,7 +122,7 @@ footer {
                 <h2>Small Caps App</h2>
                 <p>
                     Desktop and web application that converts text into small caps.
-                    Built using Python with Tkinter and deployed online for demo use.
+                    Built using Python with Tkinter and available as an online demo.
                 </p>
             </div>
             <div class="cta">View project →</div>
@@ -132,7 +133,7 @@ footer {
         <a class="project" href="#">
             <div>
                 <h2>Next Project</h2>
-                <p>Short description here.</p>
+                <p>Short description.</p>
             </div>
             <div class="cta">Coming soon</div>
         </a>
@@ -141,7 +142,7 @@ footer {
     </section>
 
     <footer>
-        © 2025 AndREiOR • Open Source on GitHub
+        © 2025 AndREiOR • Open Source Projects
     </footer>
 
 </div>
